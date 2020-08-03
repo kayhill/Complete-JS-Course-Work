@@ -34,8 +34,7 @@ console.log("Is Mark's BMI higher than John's? " + markBigger);
 
  /***********
  * Coding Challenge #3
- */
-
+ 
  function tipCalc (amount) {
      if (amount < 50) {
          return amount * .2;
@@ -48,12 +47,10 @@ console.log("Is Mark's BMI higher than John's? " + markBigger);
 
  var bill = [124, 48, 268];
 
-
  var tips = [tipCalc(bill[0]),
             tipCalc(bill[1]),
             tipCalc(bill[2]),
 ]
-
 
  var totals = [(tips[0] + bill[0]),
                 (tips[1] + bill[1]),
@@ -61,3 +58,39 @@ console.log("Is Mark's BMI higher than John's? " + markBigger);
 ]
 
  console.log(tips, totals)
+*/
+
+ /***********
+ * Coding Challenge #4
+ */
+
+ var mark = {
+     name: 'Mark',
+     height: 2,
+     mass: 100,
+     calcBmi: function(height, mass) {
+         this.bmi = this.mass / (this.height * this.height)
+     }
+ }
+ 
+ var jane = {
+    name: 'Jane',
+    height: 1.74,
+    mass: 64,
+    calcBmi: function(mass, height) {
+        this.bmi = this.mass / (this.height * this.height);
+    }
+}
+jane.calcBmi()
+mark.calcBmi()
+
+if (mark.bmi > jane.bmi) {
+    console.log(`${mark.name} has a BMI of ${mark.bmi}`);
+} else if (jane.bmi > mark.bmi) {
+    console.log(`${jane.name} has a BMI of ${jane.bmi}`)
+} else if (jane.bmi === mark.bmi) {
+    console.log(`${mark.name} and ${jane.name} have the same BMI of ${mark.bmi}`)
+} else {
+    console.log(`An error occured.`)
+}
+
