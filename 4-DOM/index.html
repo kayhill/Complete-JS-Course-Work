@@ -11,6 +11,7 @@
 
     <body>
         <div class="wrapper clearfix">
+            
             <div class="player-0-panel active">
                 <div class="player-name" id="name-0">Player 1</div>
                 <div class="player-score" id="score-0">0</div>
@@ -21,15 +22,29 @@
             </div>
             
             <div class="player-1-panel">
+                
                 <div class="player-name" id="name-1">Player 2</div>
                 <div class="player-score" id="score-1">0</div>
                 <div class="player-current-box">
                     <div class="player-current-label">Current</div>
                     <div class="player-current-score" id="current-1">0</div>
                 </div>
+                
             </div>
             
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+            
+            <div class="game-points">
+                <label for="points">How many points to win?</label>
+                <input type="number" id="points" name="points" min="10" max="100">
+                <div>
+                    <button type="submit" id="pointSubmit">Begin<ion-icon name="arrow-forward-circle-outline"></ion-icon></i></button>
+                </div>
+            </div>
+            <div class="play-to">
+                <p>Playing to <span id="play-to-span">___</span> points!</p>
+            </div>
+            
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
@@ -37,5 +52,6 @@
         </div>
         
         <script src="app.js"></script>
+        <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>
 </html>
