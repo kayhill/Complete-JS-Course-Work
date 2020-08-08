@@ -24,7 +24,8 @@ c) correct answer (I would use a number for this)
 11. Display the score in the console. Use yet another method for this.
 */
 
-var gamePlay = false;
+(function () {
+var gamePlay, q1, q2, q3, begin, points;
 
 var Question = function(question, answers, correct) {
     this.question = question;
@@ -32,13 +33,15 @@ var Question = function(question, answers, correct) {
     this.correct = correct;
 }
 
-var q1 = new Question('How many years older than Sam is Dean?', ['5 years', '10 years', '4 years'], 3);
-var q2 = new Question('What happened to Bobby\'s wife?', ['Bit by vampire', 'Possesed by demon', 'Killed by shifter'], 2);
-var q3 = new Question('Saving people, hunting things. ________', ['Easy as pie.', 'The burden we carry.', 'The family business'], 3);
+q1 = new Question('How many years older than Sam is Dean?', ['5 years', '10 years', '4 years'], 3);
+q2 = new Question('What happened to Bobby\'s wife?', ['Bit by vampire', 'Possesed by demon', 'Killed by shifter'], 2);
+q3 = new Question('Saving people, hunting things. ________', ['Easy as pie.', 'The burden we carry.', 'The family business'], 3);
 
 questions = [q1, q2, q3];
-var begin = window.prompt('Type any letter to begin quiz');
-if (begin !== null) {
+points = 0;
+
+begin = window.prompt('Open the browser console. Enter \'ok\' to begin quiz!');
+if (begin === 'ok') {
     gamePlay = true;
 }
 
@@ -50,16 +53,29 @@ function quiz () {
             var n = i +1;
             console.log(`${n}: ${questions[qnum].answers[i]}`)           
         }
-        guess = window.prompt('Type \'exit\' to end quiz. Enter your guess to continue.');
+        guess = window.prompt('**If you do not see a question in the console, type \'exit\' and refresh the page. Type \'exit\' to end quiz. Enter your guess to continue.');
         if (guess == 'exit') {
             gamePlay = false;
         } else {
-            questions[qnum].check(guess);
+            var right = questions[qnum].check(guess);
+            if (right) {
+                points ++;
+                if (points === 1) {
+                    console.log(`You now have ${points} point!`)
+                } else {
+                    console.log(`You now have ${points} points!`)
+                }
+            } else {
+                if (points === 1) {
+                    console.log(`You still have ${points} point.`)
+                } else {
+                console.log(`You still have ${points} points.`)
+                }
+            }
         }
         
     }
 }
-
 
 Question.prototype.check = function(ans) {
     if (ans == this.correct){
@@ -73,6 +89,6 @@ Question.prototype.check = function(ans) {
 
 quiz();
 
-
+}) ();
 
 
