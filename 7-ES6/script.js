@@ -54,18 +54,17 @@ class Park extends TownProp {
     }
 }
 
-const park1 = new Park('Wilson', 1965, 700, 1000);
-const park2 = new Park('Lever', 1972, 900, 8000);
-const park3 = new Park('Sawyer', 1982, 1200, 12000); 
+const parks = [new Park('Wilson', 1965, 700, 1000), 
+            new Park('Lever', 1972, 900, 8000),
+            new Park('Sawyer', 1982, 1200, 12000)]
 
-const parks = [park1, park2, park3];
 
-const street1 = new Street('Sterling', 1945, 900);
-const street2 = new Street('Waterworks', 1990, 2700, 'big');
-const street3 = new Street('Stockton', 1958, 42500, 'huge');
-const street4 = new Street('Salem', 1978, 700, 'small');
 
-const streets = [street1, street2, street3, street4];
+const streets = [new Street('Sterling', 1945, 900), 
+                new Street('Waterworks', 1990, 2700, 'big'), 
+                new Street('Stockton', 1958, 42500, 'huge'),
+                new Street('Salem', 1978, 700, 'small')]
+
 
 function streetReport(streets) {
     console.log('--Street Report--');
